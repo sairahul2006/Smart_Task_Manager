@@ -1,64 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Task Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Smart Task Manager</title>
 
-<link rel="stylesheet" href="css/style.css" />
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<main class="app">
+    <div class="container">
 
-  <header class="app__header">
-    <h1 class="app__title">Task Manager</h1>
-    <div class="top-row">
-      <div class="clock" id="clock">12:00 am</div>
-      <div class="task-summary">Remaining tomorrow: <span id="pendingNextCount">0</span></div>
+        <!-- Header -->
+
+        <header>
+
+            <h1>Smart Task Manager</h1>
+
+            <p id="quote">
+                Loading today's motivation...
+            </p>
+
+        </header>
+
+
+        <!-- Add Task Section -->
+
+        <section class="task-input">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task here">
+
+            <button id="addTaskBtn">
+                Add
+            </button>
+
+        </section>
+
+
+        <!-- Filter Buttons -->
+
+        <section class="filters">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="pending">
+                Pending
+            </button>
+
+            <button class="filter-btn" data-filter="completed">
+                Completed
+            </button>
+
+        </section>
+
+
+        <!-- Task List -->
+
+        <section class="task-section">
+
+            <h2>Tasks</h2>
+
+            <ul id="taskList">
+
+                <!-- JavaScript will create tasks here -->
+
+            </ul>
+
+            <p id="emptyMessage">
+                No tasks available.
+            </p>
+
+        </section>
+
     </div>
-    <p class="app__rule"></p>
-    <p class="app__subtitle">Write it down. Cross it off.</p>
-  </header>
 
-  <form class="add-form" id="addForm">
-    <input
-      type="text"
-      id="taskInput"
-      class="add-form__input"
-      placeholder="Add your task"
-      autocomplete="off"
-      maxlength="120"
-    />
-    <button type="submit" class="add-form__btn">Add</button>
-  </form>
+    <!-- JavaScript -->
 
-  <nav class="filters" id="filters" aria-label="Filter tasks">
-    <button class="filter-btn" data-filter="all" type="button">
-      All <span class="filter-btn__count" id="countAll">0</span>
-    </button>
-    <button class="filter-btn is-active" data-filter="pending" type="button">
-      Pending <span class="filter-btn__count" id="countPending">0</span>
-    </button>
-    <button class="filter-btn" data-filter="completed" type="button">
-      Completed <span class="filter-btn__count" id="countCompleted">0</span>
-    </button>
-  </nav>
+    <script src="js/script.js"></script>
 
-  <div class="toolbar">
-    <button type="button" class="reset-btn" id="resetBtn">Reset Tasks</button>
-  </div>
-
-  <ul class="task-list" id="taskList"></ul>
-
-  <p class="empty-state" id="emptyState" hidden>Nothing here yet.</p>
-
-</main>
-
-<script src="js/script.js"></script>
 </body>
+
 </html>
